@@ -102,6 +102,6 @@ sudo ln -s /etc/resolvconf/resolv.conf /etc/resolv.conf
 # restart all services
 sudo systemctl restart php7.1-fpm
 sudo systemctl restart nginx
-sudo systemctl restart mysqld
+sudo systemctl restart mysql
 sudo systemctl restart redis-server
 sudo systemctl restart dnsmasq
