@@ -29,6 +29,20 @@ sudo apt-get install -y \
 # install composer
 curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
 
+# fix home directory permissions
+sudo chown -R "$USER"."$(id -gn)" ~
+
+# install some composer tools
+composer global require friendsofphp/php-cs-fixer
+composer global require phpunit/phpunit
+composer global require phpunit/dbunit
+composer global require phing/phing
+composer global require phpdocumentor/phpdocumentor
+composer global require sebastian/phpcpd
+composer global require phploc/phploc
+composer global require phpmd/phpmd
+composer global require squizlabs/php_codesniffer
+
 # update some php.ini settings
 sudo sed -i -e 's/error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT/error_reporting = E_ALL/g' /etc/php/7.1/fpm/php.ini
 sudo sed -i -e 's/memory_limit = 128M/memory_limit = 512M/g' /etc/php/7.1/fpm/php.ini
